@@ -23,6 +23,7 @@ class Methods {
      * @param {string} locator Wait for the selector relative to the element handle to satisfy state option (either appear/disappear from dom, or become visible/hidden). If at the moment of calling the method selector already satisfies the condition, the method will return immediately. If the selector doesn't satisfy the condition for the timeout milliseconds, the function will throw.
      */
      async clickAnElement(item, locator = '') {
+        await this.page.waitForLoadState('load');
          if (locator) { //if the locator was sent, wait the element
             await this.waitForAnElement(locator);
         }
@@ -46,7 +47,6 @@ class Methods {
         await this.waitForAnElement(locator);
         await item.hover();
     }
-
 }
 
 export default Methods;

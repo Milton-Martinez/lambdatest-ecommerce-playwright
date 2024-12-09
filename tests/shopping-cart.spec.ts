@@ -12,19 +12,21 @@ test.describe( 'LAMBDATEST: SHOPPING CART TESTS', () =>{
   });
 
   test('Shopping flow', async ({ page }) => {
-
     //buy the first item
     await navbar.OpenShopByCategoryMenu();
     await navbar.SelectCategory(0);
     await shop.scrollToProducts();
     await shop.addToCart(0);
-
     //buy the second  item
     await navbar.OpenShopByCategoryMenu();
     await navbar.SelectCategory(1);
     await shop.scrollToProducts();
     await shop.addToCart(1);
-
-    await page.waitForTimeout( 3000 );
+    //close popup
+    await shop.closePopUp();
+    //click cart button
+    await shop.clickCartButton();
+    //expect
+    await shop.compareTotalAndSumPrices();
   });
 })
