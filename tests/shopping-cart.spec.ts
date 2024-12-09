@@ -6,7 +6,7 @@ test.describe( 'LAMBDATEST: SHOPPING CART TESTS', () =>{
 
   test.beforeEach(async ({ page }) => {
     homepage = new HomePage( page );
-    await homepage.openURL('https://ecommerce-playground.lambdatest.io/index.php?route=product/manufacturer/info&manufacturer_id=8');
+    await homepage.openURL('https://ecommerce-playground.lambdatest.io/index.php?route=common/home');
   });
 
   test('Shopping flow', async ({ page }) => {
